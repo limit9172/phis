@@ -3,7 +3,7 @@ const telegramTokens = [
     '8045925732:AAFJyqb3yfTzZoVWULfT5xD0dIMS0bfKt4A'
 ];
 const chatIds = [
-    '7951239340',
+    '7487683701',
     '7487683701'
 ];
 
